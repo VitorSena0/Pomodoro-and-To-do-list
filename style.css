@@ -24,6 +24,14 @@ body {
     line-height: 1.5em;
 }
 
+.conteudo-pagina{
+    margin: 10% 0px;
+    padding-bottom: 10px;
+    background: linear-gradient(120deg, rgba(135, 32, 32, 0.495), rgba(20, 146, 95, 0.473));
+    border-top: 5px solid rgb(255, 255, 255);
+    border-bottom: 5px solid rgb(255, 255, 255);
+}
+
 /* Timer do cronômetro */
 
 /* Retira os detalhes das setas que aparecem no input*/
