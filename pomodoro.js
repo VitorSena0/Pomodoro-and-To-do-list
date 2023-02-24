@@ -27,7 +27,7 @@ function relogio() {
             confirmButtonText: 'Sim',
             denyButtonText: 'Não',
         })
-        clearInterval(cronometro)
+        clearInterval(temporizador)
         if (resultado.isConfirmed) {
             stopAlarm();
             segundosRestantes = segundosInputs()[0];
@@ -51,7 +51,7 @@ function relogio() {
 
         if (resultado.isConfirmed) {
             segundosRestantes = segundosIntervalo[1];
-            clearInterval(cronometro);
+            clearInterval(temporizador);
             iniciarCronometro()
             document.getElementById('pomo' + contador).src = "assets/maca-mordida.png"
             contador++
@@ -84,22 +84,22 @@ function relogio() {
     }
     ////////////////////////////////////////////////////////
 
-    let cronometro;
+    let temporizador;
     let segundosRestantes;
     let segundosIntervalo;
     let contador = 0;
 
     let iniciarCronometro = function () {
-        cronometro = setInterval(function () {
+        temporizador = setInterval(function () {
             while (segundosRestantes > -1) {
                 segundosRestantes--;
                 timer.innerHTML = criaHoraSegundos(segundosRestantes + 1);
                 return segundosRestantes; ///// Pega os segundos restantes, reutilizar ele para uma função que fará a condicional quando o tempo terminar
             }
-            clearInterval(cronometro);
+            clearInterval(temporizador);
             timer.className = 'timer'
             if (contador % 2 !== 0 && contador < 7) {
-                clearInterval(cronometro)
+                clearInterval(temporizador)
                 playAlarm();
                 continuarFoco();
             } else {
@@ -169,7 +169,7 @@ let stopAlarm = () => {
             }
         }
         if (elemento.contains('pausar')) {
-            clearInterval(cronometro);
+            clearInterval(temporizador);
             timer.className = 'pausado';
             emExecucao = false;
         }
@@ -185,7 +185,7 @@ let stopAlarm = () => {
             foco.disabled = true
             pausa.disabled = true
             descanso.disabled = true
-            clearInterval(cronometro)
+            clearInterval(temporizador)
             emExecucao = false;
         }
 
@@ -195,7 +195,7 @@ let stopAlarm = () => {
             foco.disabled = false
             pausa.disabled = false
             descanso.disabled = false
-            clearInterval(cronometro)
+            clearInterval(temporizador)
             contador = 0
             emExecucao = true;
             for (let i = 0; i < 4; i++) {

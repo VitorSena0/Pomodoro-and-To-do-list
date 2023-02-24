@@ -9,98 +9,120 @@
     <title>Pomodoro</title>
     <title>Document</title>
     <!-- Importe o CSS do SweetAlert2 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
 
-<!-- Importe o JavaScript do SweetAlert2 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+    <!-- Importe o JavaScript do SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
 </head>
+
 <body>
     <div class="conteudo-pagina">
-    <section class="container-cronometro">
+        <section class="container-temporizador">
 
-        <aside >
-            <div class="define-cronometro-form">
-                <form action="">
-                    <div input-group>
-                        <input type="" value="Foco" disabled class="input-text">
-                        <input type="number" placeholder='Tempo em minutos' id="foco" disabled="true">
-                        <input type="" value="minutos" disabled class="input-text-minut">
-                        <br>
-                        <input type="" value="Pausa" disabled class="input-text">
-                        <input type="number" placeholder='Tempo em minutos' id="pausa" disabled="true">
-                        <input type="" value="minutos" disabled class="input-text-minut">
-                        <br>
-                        <input type="" value="Descanso" disabled class="input-text">
-                        <input type="number" placeholder='Tempo em minutos' id="descanso" disabled="true">
-                        <input type="" value="minutos" disabled class="input-text-minut">
-                        <br>
+            <aside>
+                <div class="define-temporizador-form">
+                    <form action="">
+                        <div input-group>
+                            <input type="" value="Foco" disabled class="input-text">
+                            <input type="number" placeholder='Tempo em minutos' id="foco" disabled="true">
+                            <input type="" value="minutos" disabled class="input-text-minut">
+                            <br>
+                            <input type="" value="Pausa" disabled class="input-text">
+                            <input type="number" placeholder='Tempo em minutos' id="pausa" disabled="true">
+                            <input type="" value="minutos" disabled class="input-text-minut">
+                            <br>
+                            <input type="" value="Descanso" disabled class="input-text">
+                            <input type="number" placeholder='Tempo em minutos' id="descanso" disabled="true">
+                            <input type="" value="minutos" disabled class="input-text-minut">
+                            <br>
+                        </div>
+
+                        <input type="submit" value="Confirmar" class="confirmar" disabled="true">
+                        <input type="button" value="Redefinir" class="redefinir">
+                    </form>
+                    <p class="tempo-padrao"> Tempo padrão: Intervalo (10 min), Descanso (5 min), Foco (30 min)</p>
+                </div>
+            </aside>
+            <div class="conteudo-pomodoro">
+                <aside class="meu-timer">
+                    <div class="temporizador">
+                        <h3>Meu timer</h3>
+                        <div class="timer">00:00:00</div>
+                        <div class="botoes">
+                            <button class="iniciar">Iniciar</button>
+                            <button class="pausar">Pausar</button>
+                            <!--<button class="zerar">Zerar</button> -->
+                        </div>
                     </div>
-
-                    <input type="submit" value="Confirmar" class="confirmar" disabled="true">
-                    <input type="button" value="Redefinir" class="redefinir">
-                </form>
-                <p class="tempo-padrao"> Tempo padrão: Intervalo (10 min), Descanso (5 min), Foco (30 min)</p>
+                </aside>
+                <aside>
+                    <div class="ciclo">
+                        <div class="primeiroParPomo">
+                            <img id="pomo0" src="assets/maca.png" class="pomo">
+                            <img id="pomo2" src="assets/maca.png" class="pomo">
+                        </div>
+                        <div class="segundoParPomo">
+                            <img id="pomo4" src="assets/maca.png" class="pomo">
+                            <img id="pomo6" src="assets/maca.png" class="pomo">
+                        </div>
+                    </div>
+                </aside>
             </div>
-        </aside>
-        <div class="conteudo-pomodoro">
-           <aside class="meu-timer">
-            <div class="cronometro">
-                <h3>Meu timer</h3>
-                <div class="timer">00:00:00</div>
-                <div class="botoes">
-                    <button class="iniciar">Iniciar</button>
-                    <button class="pausar">Pausar</button>
-                    <!--<button class="zerar">Zerar</button> -->
+            <!--Parte do cronômetro-->
+        </section>
+        <section>
+            <div class="conteudo-cronometro">
+                <aside class="meu-cronometro">
+                    <div class="cronometro">
+                        <asside class="sessao-cronometro-direita">
+                            <div class="iniciar-cronometro">
+                                <button class="botao-iniciar-cronometro">Iniciar</button>
+                            </div>
+                        </asside>
+                        <asside class="sessao-cronometro-meio">
+                            <h3 style="color: white;">Cronômetro</h3>
+                            <div class="timer-cronometro" title="Por tela cheia">00:00:00</div>
+                        </asside>
+                        <asside class="sessao-cronometro-direita">
+                            <div class="pausar-cronometro">
+                                <button class="botao-pausar-cronometro">Pausar</button>
+                            </div>
+                        </asside>
+        </section>
+        <section>
+            <div id="lo-fi">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk"
+                    title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen></iframe>
+            </div>
+        </section>
+
+        <!-- Parte da lista de tarefas -->
+
+        <section class="container">
+            <aside>
+                <h1>Lista de tarefas</h1>
+                <p>
+                    <input type="text" class="input-tarefa" placeholder="Digite a tarefa Aqui">
+                    <button class="add-tarefa">Adicionar nova tarefa</button>
+                </p>
+
+                <ul class="tarefas"></ul>
+            </aside>
+            <aside class="sessao-concluido">
+                <div>
+                    <h1 style="text-align: center;">Concluido</h1>
+                    <hr>
+                    <button class="remove-all">Deletar tudo</button><br>
                 </div>
-            </div>
-        </aside>
-        <aside>
-            <div class="ciclo">
-                <div class="primeiroParPomo">
-                    <img id="pomo0" src="assets/maca.png" class="pomo">
-                    <img id="pomo2" src="assets/maca.png" class="pomo">
-                </div>
-                <div class="segundoParPomo">
-                    <img id="pomo4" src="assets/maca.png" class="pomo">
-                    <img id="pomo6" src="assets/maca.png" class="pomo">
-                </div>
-            </div>
-        </aside>  
-        </div>
-       
-    </section>
 
-    <section>
-        <div id="lo-fi">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </section>
+                <ul class="tarefas-concluidas"></ul>
 
-    <!-- Parte da lista de tarefas -->
-
-    <section class="container">
-        <aside>
-            <h1>Lista de tarefas</h1>
-            <p>
-                <input type="text" class="input-tarefa" placeholder="Digite a tarefa Aqui">
-                <button class="add-tarefa">Adicionar nova tarefa</button>
-            </p>
-
-            <ul class="tarefas"></ul>
-        </aside>
-        <aside class="sessao-concluido">
-            <div>
-                <h1 style="text-align: center;">Concluido</h1>
-                <hr>
-                <button class="remove-all">Deletar tudo</button><br>
-            </div>
-
-            <ul class="tarefas-concluidas"></ul>
-
-        </aside>
-    </section>
-</div>
-</main>
+            </aside>
+        </section>
+    </div>
+    </main>
 
     <script src="pomodoro.js"></script>
 </body>

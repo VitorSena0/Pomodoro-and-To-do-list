@@ -32,7 +32,7 @@ body {
     border-bottom: 5px solid rgb(255, 255, 255);
 }
 
-/* Timer do cronômetro */
+/*////////// Temporizador //////////*/
 
 /* Retira os detalhes das setas que aparecem no input*/
 input[type=number]::-webkit-inner-spin-button,
@@ -56,11 +56,11 @@ img {
     pointer-events: none;
   }
 
-.container-cronometro aside{
+.container-temporizador aside{
     width: 70%;
     float: left;
 }
-.cronometro {
+.temporizador {
     background-color: #fff;
     border-radius: 10px;
     padding: 1% 10px;
@@ -95,7 +95,7 @@ img {
     color: red;
     text-align: center;
 }
-.container-cronometro{
+.container-temporizador{
     align-content: center;
     display: flex;
     box-sizing: content-box;
@@ -103,7 +103,7 @@ img {
     padding: 40px;
 }
 
-.define-cronometro-form{
+.define-temporizador-form{
     text-align: center;
     background-color: #fff;
     width: 360px;
@@ -114,6 +114,7 @@ img {
 
 .tempo-padrao{
     font-size: 10px;
+    padding-bottom: 9px;
 }
 
 .input-text{
@@ -151,6 +152,59 @@ img {
     display: flex;
 }
 /*//////////////////////////////////////////////////////*/
+
+/*///////////////Cronômetro///////////////*/
+
+.meu-cronometro {
+    text-align: center;
+    width: 100%;
+}
+.cronometro {
+    padding: 10px;
+    margin-bottom: 40px;
+    background-color: black;
+    width: 460px;
+    border-radius: 25px;
+    border: #969696 2px solid;
+    display: flex;
+}
+
+.timer-cronometro{
+    color: white;
+    font-size: 40px;
+    padding-top: -30px;
+    margin-right: -35px;
+}
+
+.pausar-cronometro button{
+    background-color: rgba(255, 0, 0, 0.534);
+    border-radius: 23px;
+    font-size: 30px;
+    width: 138%;
+    height: 81px;
+    margin-bottom: -23px;
+    margin-top: -9px;
+}
+
+.sessao-cronometro-meio h3{
+    margin-right: -30px;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+
+.iniciar-cronometro button{
+    background-color: rgba(0, 128, 0, 0.657);
+    border-radius: 23px;
+    font-size: 30px;
+    width: 269%;
+    height: 81px;
+    margin-bottom: -23px;
+    margin-top: -9px;
+    margin-left: -36px;
+}
+
+/*///////////////////////////////////////*/
 
 /*Video lo-fi*/
 #lo-fi{
