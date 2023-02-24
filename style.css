@@ -132,6 +132,13 @@ img {
     background-color: gray;
     border-radius: 3px;
 }
+/*//////////////////////////////////////////////////////*/
+
+/*Video lo-fi*/
+#lo-fi{
+    text-align: center;
+}
+/*//////////////////*/
 
 /*/////////////    Lista de tarefas   ///////////////*/
 .container {
