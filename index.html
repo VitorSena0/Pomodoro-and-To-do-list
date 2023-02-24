@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Pomodoro</title>
+    <title>Document</title>
+    <!-- Importe o CSS do SweetAlert2 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.css">
+
+<!-- Importe o JavaScript do SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10.16.3/dist/sweetalert2.min.js"></script>
+</head>
+<body>
+    <section class="container-cronometro">
+
+        <aside >
+            <div class="define-cronometro-form">
+                <form action="">
+                    <div input-group>
+                        <input type="" value="Foco" disabled class="input-text">
+                        <input type="number" placeholder='Tempo em minutos' id="foco" disabled="true">
+                        <input type="" value="minutos" disabled class="input-text-minut">
+                        <br>
+                        <input type="" value="Pausa" disabled class="input-text">
+                        <input type="number" placeholder='Tempo em minutos' id="pausa" disabled="true">
+                        <input type="" value="minutos" disabled class="input-text-minut">
+                        <br>
+                        <input type="" value="Descanso" disabled class="input-text">
+                        <input type="number" placeholder='Tempo em minutos' id="descanso" disabled="true">
+                        <input type="" value="minutos" disabled class="input-text-minut">
+                        <br>
+                    </div>
+
+                    <input type="submit" value="Confirmar" class="confirmar" disabled="true">
+                    <input type="button" value="Redefinir" class="redefinir">
+                </form>
+                <p class="tempo-padrao"> Tempo padrão: Intervalo (10 min), Descanso (5 min), Foco (30 min)</p>
+            </div>
+        </aside>
+        <aside class="meu-timer">
+            <div class="cronometro">
+                <h3>Meu timer</h3>
+                <div class="timer">00:00:00</div>
+                <div class="botoes">
+                    <button class="iniciar">Iniciar</button>
+                    <button class="pausar">Pausar</button>
+                    <!--<button class="zerar">Zerar</button> -->
+                </div>
+            </div>
+        </aside>
+        <aside>
+            <div class="ciclo">
+                <div class="primeiroParPomo">
+                    <img id="pomo0" src="assets/maca.png" class="pomo">
+                    <img id="pomo2" src="assets/maca.png" class="pomo">
+                </div>
+                <div class="segundoParPomo">
+                    <img id="pomo4" src="assets/maca.png" class="pomo">
+                    <img id="pomo6" src="assets/maca.png" class="pomo">
+                </div>
+            </div>
+        </aside>
+    </section>
+
+    <!-- Parte da lista de tarefas -->
+
+    <section class="container">
+        <aside>
+            <h1>Lista de tarefas</h1>
+            <p>
+                <input type="text" class="input-tarefa" placeholder="Digite a tarefa Aqui">
+                <button class="add-tarefa">Adicionar nova tarefa</button>
+            </p>
+
+            <ul class="tarefas"></ul>
+        </aside>
+        <aside class="sessao-concluido">
+            <div>
+                <h1 style="text-align: center;">Concluido</h1>
+                <hr>
+                <button class="remove-all">Deletar tudo</button><br>
+            </div>
+
+            <ul class="tarefas-concluidas"></ul>
+
+        </aside>
+    </section>
+</main>
+
+    <script src="pomodoro.js"></script>
+</body>
+
+</html>

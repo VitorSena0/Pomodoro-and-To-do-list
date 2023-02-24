@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap');
+
+:root {
+    --primary-color: rgb(17, 86, 102);
+    --primary-color-darker: rgb(9, 48, 56);
+}
+
+* {
+    /* O código em asterisco chama-se seletor universal, pois todos os atributos contidos nele impactará nas chamadas subsequentes.*/
+    margin: 0 auto;
+    padding: 0;
+    /*A propriedade padding define uma a distância entre o conteúdo de um elemento e suas bordas. É um atalho que evita definir uma distância para cada lado separadamente ( padding-top , padding-right , padding-bottom , padding-left )*/
+    box-sizing: border-box;
+    /*O box-sizing com o valor border-box faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura*/
+    outline: 0;
+}
+
+body {
+    background-color:  rgb(14, 31, 85);
+    margin: 0;
+    padding: 0;
+    font-family: 'Open sans', sans-serif;
+    font-size: 1.3em;
+    line-height: 1.5em;
+}
+
+/* Timer do cronômetro */
+
+/* Retira os detalhes das setas que aparecem no input*/
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* padrão */
+    text-align: center;
+}
+/*///////////////////////////////////////////////////*/
+
+img {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    pointer-events: none;
+  }
+
+.container-cronometro aside{
+    width: 70%;
+    float: left;
+}
+.cronometro {
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 1% 10px;
+    width: 180px;
+    height: 85%;
+    float: center;
+    text-align: center;
+}
+
+.botoes {
+    padding-top: 40px;
+    text-align: center;
+}
+
+.iniciar, .pausar, .zerar{
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+
+.timer {
+    font-size: 30px;
+    margin-top: -5px;
+    margin-top: 20px;
+    text-align: center;
+    color: black;
+}
+
+.pausado {
+    font-size: 30px;
+    margin-top: 20px;
+    color: red;
+    text-align: center;
+}
+.container-cronometro{
+    align-content: center;
+    display: flex;
+    box-sizing: content-box;
+    width: 800px;
+    padding: 40px;
+}
+
+.define-cronometro-form{
+    text-align: center;
+    background-color: #fff;
+    width: 360px;
+    padding: 10px;
+    border-radius: 15px;
+    height: 85%;
+}
+
+.tempo-padrao{
+    font-size: 10px;
+}
+
+.input-text{
+    text-align: center;
+    margin-right: -8px;
+    width: 68px;
+    color: white;
+    background-color: gray;
+    border-radius: 3px;
+}
+.input-text-minut{
+    text-align: center;
+    margin-left: -8px;
+    width: 68px;
+    color: white;
+    background-color: gray;
+    border-radius: 3px;
+}
+
+/*/////////////    Lista de tarefas   ///////////////*/
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+  }
+
+.sessao-concluido {
+    border-left: solid black 2px;
+    width: 100%;
+    padding-left: 20px;
+}
+.sessao-concluido div{
+    margin-bottom: 20px;
+}
+.sessao-concluido div button{
+    float: right;
+    margin-top: 10px;
+}
+.tarefas-concluidas li{
+    width: 400px;
+    word-wrap: break-word;
+    list-style: inside;
+    padding-top: 0px;
+}
+
+.apagar{
+    float: right;
+    margin-top: 6px;
+    margin-left: 14px;
+} 
+
+.concluir {
+    float: right;
+    margin-top: 6px;
+}
+.tarefas{
+    width: 450px;
+    word-wrap: break-word;
+    list-style: inside;
+    list-style-type: decimal-leading-zero;
+    padding-right: 10px;
+    
+}
+
+.tarefas li {
+    margin-bottom: 0px;
+    white-space: pre-wrap;
+}
+
+.tabelaCinza{
+    background-color: #969696;
+    
+}
+
+.Cor-concluido-1 {
+    background-color: #6ccd7789;
+}
+.Cor-concluido-2 {
+    background-color: #83b5dd7b;
+}
