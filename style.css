@@ -158,15 +158,16 @@ img {
 .meu-cronometro {
     text-align: center;
     width: 100%;
+    margin-bottom: 40px;
 }
 .cronometro {
     padding: 10px;
-    margin-bottom: 40px;
     background-color: black;
     width: 460px;
     border-radius: 25px;
     border: #969696 2px solid;
     display: flex;
+    margin-bottom: -4px;
 }
 
 .timer-cronometro{
@@ -177,7 +178,7 @@ img {
 }
 
 .pausar-cronometro button{
-    background-color: rgba(255, 0, 0, 0.534);
+    background-color: rgba(255, 0, 0, 0.517);
     border-radius: 23px;
     font-size: 30px;
     width: 138%;
@@ -202,6 +203,18 @@ img {
     margin-bottom: -23px;
     margin-top: -9px;
     margin-left: -36px;
+}
+
+.resetar-cronometro{
+    padding: 5px;
+    font-size: 15px;
+    border-radius: 0px 0px 20px 20px;
+}
+.botao-resetar:hover button{
+    background-color: rgb(89, 89, 89);
+    width: 95px;
+    height: 35px;
+    color: white;
 }
 
 /*///////////////////////////////////////*/
