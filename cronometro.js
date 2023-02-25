@@ -67,7 +67,6 @@ let cronometroIntervalo;
        if(!document.fullscreenElement){
            timer.title = 'Abrir tela cheia'
            timer.className = 'timer-cronometro'
-           document.exitFullscreen();
        }
    })         
                 

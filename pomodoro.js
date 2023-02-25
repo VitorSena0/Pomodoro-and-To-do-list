@@ -217,6 +217,8 @@ function listaDeTarefas() {
     const tarefas = document.querySelector('.tarefas');
     const tarefasConcluidas = document.querySelector('.tarefas-concluidas');
 
+    let createParagrafo;
+
     const criaLista = function () {
         const listas = document.createElement('li');
         return listas;
@@ -228,6 +230,7 @@ function listaDeTarefas() {
         listaCriada.classList.add('tarefaConcluida');
         tarefasConcluidas.appendChild(listaCriada);
         CriaBotaoApagar(listaCriada)
+        criaHoraTarefa(listaCriada)
         salvarTarefa();
     }
     const criaTarefa = function (textoInserido) {
@@ -237,7 +240,20 @@ function listaDeTarefas() {
         tarefas.appendChild(listaCriada);
         CriaBotaoApagar(listaCriada)
         CriaBotaoConcluir(listaCriada);
+        criaHoraTarefa(listaCriada)
         salvarTarefa();
+    }
+
+    const criaHoraTarefa = (lista) => {
+        const data = new Date();
+        const dataLocal = data.toLocaleDateString()
+        const horaLocal = data.toLocaleTimeString('pt-br',{hour: 'numeric', minute: 'numeric'})
+        createParagrafo = document.createElement('h6');
+        createParagrafo.innerHTML = `criação: ${dataLocal} ${horaLocal}`;
+        createParagrafo.setAttribute('class', 'data-Hora');
+        lista.appendChild(createParagrafo)
+        // Deixa o horário sem os segundos
+        //const armazenaDataHora = [dataLocal,horaLocal]
     }
 
     const limpaImput = function () {
@@ -296,20 +312,20 @@ function listaDeTarefas() {
     ///////////// Salvar o conteúdo das tarefas ////////////
 
     const salvarTarefa = function () {
-        const liTarefas = tarefas.querySelectorAll('li');
+        const lisTarefas = tarefas.querySelectorAll('li');
         const pegaListaConcluida = tarefasConcluidas.querySelectorAll('li');
         const listaDeTarefas = [];
         const listaConcluida = [];
 
-        for (let lista of liTarefas) {
+        for (let lista of lisTarefas) {
             let tarefaTexto = lista.innerText;
-            tarefaTexto = tarefaTexto.replace('Apagar', '').replace('Concluir', '').trim();
+            tarefaTexto = tarefaTexto.replace('Apagar', '').replace('Concluir', '').replace(createParagrafo.innerHTML,'').trim();
             listaDeTarefas.push(tarefaTexto);
         }
 
         for (let lista of pegaListaConcluida) {
             let tarefaTexto = lista.innerText;
-            tarefaTexto = tarefaTexto.replace('Apagar', '').trim();
+            tarefaTexto = tarefaTexto.replace('Apagar', '').replace(createParagrafo.innerHTML, '').trim();
             listaConcluida.push(tarefaTexto);
         }
 

@@ -297,6 +297,11 @@ img {
     white-space: pre-wrap;
 }
 
+/*Aqui está a hora e a data atual*/
+h6 { 
+    text-align: center;
+}
+
 .tabelaCinza{
     background-color: #969696;
     
