@@ -340,6 +340,7 @@ function listaDeTarefas() {
     ///////////////// Eventos ///////////////////
     inputTarefa.addEventListener('keypress', function (eventoDaTecla) {
         // Com isto dá para ver os atrubutos do evento de pressionar a tecla. 
+        
         if (eventoDaTecla.keyCode === 13) { // O keyCode é um atributo do objeto keyBoardEvet, por isso dá para acessar ele por .nomeDoAtributo;
             if (!inputTarefa.value) return;
 

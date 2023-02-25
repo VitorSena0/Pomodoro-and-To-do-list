@@ -174,7 +174,22 @@ img {
     color: white;
     font-size: 40px;
     padding-top: -30px;
-    margin-right: -35px;
+    margin-right: -37px;
+    cursor: pointer;
+}
+.timer-cronometro-pausado {
+    color: rgba(249, 0, 0, 0.952);
+    font-size: 40px;
+    padding-top: -30px;
+    margin-right: -37px;
+    cursor: pointer;
+}
+
+.timer-cronometro-telaCheia {
+    color: white;
+    cursor: default;
+    font-size: 100px;
+    translate: 0% 50%;
 }
 
 .pausar-cronometro button{
@@ -188,7 +203,7 @@ img {
 }
 
 .sessao-cronometro-meio h3{
-    margin-right: -30px;
+    margin-right: -33px;
     margin-top: -5px;
     margin-bottom: 5px;
 }
@@ -210,9 +225,13 @@ img {
     font-size: 15px;
     border-radius: 0px 0px 20px 20px;
 }
+.botao-resetar{
+    width: 8%;
+}
+
 .botao-resetar:hover button{
     background-color: rgb(89, 89, 89);
-    width: 95px;
+    width: 120%;
     height: 35px;
     color: white;
 }
