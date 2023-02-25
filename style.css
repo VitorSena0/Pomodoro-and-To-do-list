@@ -222,12 +222,12 @@ img {
     border-radius: 0px 0px 20px 20px;
 }
 .botao-resetar{
-    width: 8%;
+    width: 70px;
 }
 
 .botao-resetar:hover button{
     background-color: rgb(89, 89, 89);
-    width: 120%;
+    width: 89px;
     height: 35px;
     color: white;
 }
