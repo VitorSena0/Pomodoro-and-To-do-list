@@ -1,5 +1,6 @@
 function relogio() {
 
+    // Pega os inputs do cronômetro 
     const foco = document.querySelector('#foco');
     const pausa = document.querySelector('#pausa');
     const descanso = document.querySelector('#descanso')
@@ -8,7 +9,7 @@ function relogio() {
     const alarmeComplete = new Audio('assets/AudioComquista.mp3')
     timer.className = 'timer'
 
-
+    // Transforma os segundos em tempo com horas, minutos e segundos
     let criaHoraSegundos = function (segundos) {
         data = new Date(segundos * 1000)
         return data.toLocaleTimeString('pt-BR', {
@@ -17,7 +18,7 @@ function relogio() {
         });
     }
 
-    //////////// Caixa de diálogo personalisada /////////////
+    /// Caixa de diálogo personalisada ///
     let continuarFoco = async () => {
         const resultado = await Swal.fire({
             title: 'Continuar no foco?',
@@ -82,13 +83,15 @@ function relogio() {
             stopAlarm()
         }
     }
-    ////////////////////////////////////////////////////////
 
+    // Declara as variáveis globais
     let temporizador;
     let segundosRestantes;
     let segundosIntervalo;
     let contador = 0;
+    let alarmInterval;
 
+    // Função para calcular o temporizador 
     let iniciarCronometro = function () {
         temporizador = setInterval(function () {
             while (segundosRestantes > -1) {
@@ -108,20 +111,22 @@ function relogio() {
         }, 1000);
     }
 
-let alarmInterval;
 
+// Toca o alarme quando aparecer uma caixa de diálogo
 let playAlarm = () => {
     alarmInterval = setInterval(function () {
         alarme.play()
     }, 1000);
 }
 
+// Para o alarme quando a caixa de diálogo for fechada
 let stopAlarm = () => {
     alarme.pause();
     alarme.currentTime = 0;
     clearInterval(alarmInterval);
 }
 
+// Função que verifica se o tempo de foco foi finalizado e então aplica 3 pausas e 1 descanso por ciclo
     let Descanso = () => {
         playAlarm()
         segundosIntervalo = segundosInputs()
@@ -138,7 +143,7 @@ let stopAlarm = () => {
         }
     }
 
-
+// Verifica os valores dos inputs e decide se aplica o valor de tempo padrão ou o tempo inserido no input e então transforma os minutos em segundos.
     let segundosInputs = () => {
         if (!foco.value) { foco.value = 30; }
         if (!pausa.value) { pausa.value = 5; }
@@ -152,12 +157,16 @@ let stopAlarm = () => {
         return segundosArray
     }
 
+    // variável de controle para os botões 
     let emExecucao = false;
     let emExecucaoTempo = 1;
 
+    // Evento de click
     document.addEventListener('click', function (evento) {
-        const elemento = evento.target.classList;
+        const elemento = evento.target.classList; // Atribui a classe do elemento clicado à constante
         if (!emExecucao) {
+
+            // Evento do botão iniciar
             if (elemento.contains('iniciar')) { // Retorna true ou false a depender se contém ou não
                 if (emExecucaoTempo) {
                     segundosInputs();
@@ -168,16 +177,19 @@ let stopAlarm = () => {
                 emExecucao = true
             }
         }
+
+        // Evento do botão pausar
         if (elemento.contains('pausar')) {
             clearInterval(temporizador);
             timer.className = 'pausado';
             emExecucao = false;
         }
 
+        // Botões do formulário
         const confirmar = document.querySelector('.confirmar');
         const Redefinir = document.querySelector('.redefinir');
 
-
+        // Evento do botão confirmar
         if (elemento.contains('confirmar')) {
             segundosInputs()
             confirmar.disabled = true;
@@ -189,6 +201,7 @@ let stopAlarm = () => {
             emExecucao = false;
         }
 
+        // Evento do botão redefinir
         if (elemento.contains('redefinir')) {
             confirmar.disabled = false;
             Redefinir.disabled = true;
@@ -198,7 +211,7 @@ let stopAlarm = () => {
             clearInterval(temporizador)
             contador = 0
             emExecucao = true;
-            for (let i = 0; i < 4; i++) {
+            for (let i = 0; i < 4; i++) { // Quando redefinido ele reseta as maçãs para o início
                 document.getElementsByClassName('pomo')[i].src = 'assets/maca.png';
             }
         }
@@ -206,201 +219,3 @@ let stopAlarm = () => {
 
 }
 relogio();
-
-///////////////////// Lista de Tarefas /////////////////////////////////
-///////////////////////////////////////////////////////////////////////
-
-function listaDeTarefas() {
-
-    const inputTarefa = document.querySelector('.input-tarefa');
-    const botaoTarefa = document.querySelector('.add-tarefa');
-    const tarefas = document.querySelector('.tarefas');
-    const tarefasConcluidas = document.querySelector('.tarefas-concluidas');
-
-    let createParagrafo;
-
-    const criaLista = function () {
-        const listas = document.createElement('li');
-        return listas;
-    }
-
-    const criaTarefaConcluida = function (textoInserido) {
-        const listaCriada = criaLista();
-        listaCriada.innerText = textoInserido;
-        listaCriada.classList.add('tarefaConcluida');
-        tarefasConcluidas.appendChild(listaCriada);
-        CriaBotaoApagar(listaCriada)
-        criaHoraTarefa(listaCriada)
-        salvarTarefa();
-    }
-    const criaTarefa = function (textoInserido) {
-        const listaCriada = criaLista();
-        listaCriada.innerText = textoInserido;
-        listaCriada.classList.add('tarefa');
-        tarefas.appendChild(listaCriada);
-        CriaBotaoApagar(listaCriada)
-        CriaBotaoConcluir(listaCriada);
-        criaHoraTarefa(listaCriada)
-        salvarTarefa();
-    }
-
-    const criaHoraTarefa = (lista) => {
-        const data = new Date();
-        const dataLocal = data.toLocaleDateString()
-        const horaLocal = data.toLocaleTimeString('pt-br',{hour: 'numeric', minute: 'numeric'})
-        createParagrafo = document.createElement('h6');
-        createParagrafo.innerHTML = `criação: ${dataLocal} ${horaLocal}`;
-        createParagrafo.setAttribute('class', 'data-Hora');
-        lista.appendChild(createParagrafo)
-        // Deixa o horário sem os segundos
-        //const armazenaDataHora = [dataLocal,horaLocal]
-    }
-
-    const limpaImput = function () {
-        inputTarefa.value = '';
-        inputTarefa.focus();
-    }
-
-    const CriaBotaoApagar = function (lista) {
-        const botaoApagar = document.createElement('button');
-        botaoApagar.innerText = 'Apagar';
-        botaoApagar.setAttribute('class', 'apagar');
-        botaoApagar.setAttribute('title', 'Apagar Tarefa');
-        lista.appendChild(botaoApagar)
-    }
-
-    const CriaBotaoConcluir = function (lista) {
-        const botaoConcluir = document.createElement('button');
-        botaoConcluir.innerText = 'Concluir';
-        botaoConcluir.setAttribute('class', 'concluir');
-        botaoConcluir.setAttribute('title', 'Concluir Tarefa');
-        lista.appendChild(botaoConcluir);
-    }
-
-    const verificaTarefaRepete = function () {
-        const listaTarefas = localStorage.getItem('tarefas');
-        const arrayListaTarefa = JSON.parse(listaTarefas);
-
-        if (listaTarefas) {
-            return arrayListaTarefa.indexOf(inputTarefa.value) !== -1;
-        }
-
-    }
-
-    const DeletarTudoLista = function () {
-        const pegaTodaLista = tarefasConcluidas.querySelectorAll('li');
-        const tarefasJSON = localStorage.getItem('tarefasConcluidas');
-        const listaDeTarefasJSOM = JSON.parse(tarefasJSON);
-
-        for (let deletar in listaDeTarefasJSOM) {
-            pegaTodaLista[deletar].remove(); // remove todas as listas e seus conteúdos de maneira iterada
-        }
-    }
-
-    // Função muda cor de fundo de lista
-
-    const mudaCorLista = () => {
-        const tarefa = tarefas.querySelectorAll('li');
-        const tarefaConcluida = tarefasConcluidas.querySelectorAll('li');
-        for (let i in tarefa) {
-            tarefa[i].className = (i % 2 !== 0) ? 'tabelaCinza' : undefined;
-        }
-        for (let i in tarefaConcluida) {
-            tarefaConcluida[i].className = (i % 2 !== 0) ? 'Cor-concluido-1' : 'Cor-concluido-2';
-        }
-    }
-    ///////////// Salvar o conteúdo das tarefas ////////////
-
-    const salvarTarefa = function () {
-        const lisTarefas = tarefas.querySelectorAll('li');
-        const pegaListaConcluida = tarefasConcluidas.querySelectorAll('li');
-        const listaDeTarefas = [];
-        const listaConcluida = [];
-
-        for (let lista of lisTarefas) {
-            let tarefaTexto = lista.innerText;
-            tarefaTexto = tarefaTexto.replace('Apagar', '').replace('Concluir', '').replace(createParagrafo.innerHTML,'').trim();
-            listaDeTarefas.push(tarefaTexto);
-        }
-
-        for (let lista of pegaListaConcluida) {
-            let tarefaTexto = lista.innerText;
-            tarefaTexto = tarefaTexto.replace('Apagar', '').replace(createParagrafo.innerHTML, '').trim();
-            listaConcluida.push(tarefaTexto);
-        }
-
-        localStorage.setItem('tarefasConcluidas', JSON.stringify(listaConcluida));
-        localStorage.setItem('tarefas', JSON.stringify(listaDeTarefas));
-    }
-
-    const adicionaTarefaSalvas = function () {
-        const tarefas = localStorage.getItem('tarefas');
-        const listaDeTarefas = JSON.parse(tarefas)
-        const tarefasConcluidas = localStorage.getItem('tarefasConcluidas');
-        const listaDeTarefasConcluidas = JSON.parse(tarefasConcluidas)
-
-        if (listaDeTarefas) {
-            for (let tarefa of listaDeTarefas) {
-                criaTarefa(tarefa)
-            }
-        }
-        if (listaDeTarefasConcluidas) {
-            for (let tarefas of listaDeTarefasConcluidas) {
-                criaTarefaConcluida(tarefas)
-            }
-        }
-        mudaCorLista()
-    }
-    adicionaTarefaSalvas();
-
-    ///////////////// Eventos ///////////////////
-    inputTarefa.addEventListener('keypress', function (eventoDaTecla) {
-        // Com isto dá para ver os atrubutos do evento de pressionar a tecla. 
-        
-        if (eventoDaTecla.keyCode === 13) { // O keyCode é um atributo do objeto keyBoardEvet, por isso dá para acessar ele por .nomeDoAtributo;
-            if (!inputTarefa.value) return;
-
-            if (!verificaTarefaRepete()) {
-                criaTarefa(inputTarefa.value);
-                limpaImput();
-            } else {
-                alert('Esta tarefa já está registrada');
-            }
-        }
-        mudaCorLista()
-    })
-
-    botaoTarefa.addEventListener('click', function (evento) {
-        if (!inputTarefa.value) return; // retornará nada se o input estiver vazio;
-
-        if (!verificaTarefaRepete()) {
-            criaTarefa(inputTarefa.value);
-            limpaImput();
-        } else {
-            alert('Esta tarefa já está registrada')
-        }
-        mudaCorLista()
-    })
-
-    document.addEventListener('click', function (botaoClicado) {
-
-        elemento = botaoClicado.target;
-        if (elemento.classList.contains('apagar')) {
-            elemento.parentElement.remove();
-            mudaCorLista();
-            salvarTarefa();
-        }
-        if (elemento.classList.contains('remove-all')) {
-            DeletarTudoLista();
-            salvarTarefa();
-        }
-        if (elemento.classList.contains('concluir')) {
-            tarefasConcluidas.appendChild(elemento.parentElement);
-            elemento.parentElement.removeChild(elemento);
-            mudaCorLista();
-            salvarTarefa();
-        }
-    })
-}
-listaDeTarefas()
-

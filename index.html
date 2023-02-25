@@ -17,10 +17,13 @@
 
 <body>
     <div class="conteudo-pagina">
-        <section class="container-temporizador">
 
+        <!-- Estrutura do temporizador do Pomodoro -->
+        <section class="container-temporizador">
+            
             <aside>
                 <div class="define-temporizador-form">
+                    <!--Formulario dos inputs em minutos para o temporizador-->
                     <form action="">
                         <div input-group>
                             <input type="" value="Foco" disabled class="input-text">
@@ -44,6 +47,8 @@
                 </div>
             </aside>
             <div class="conteudo-pomodoro">
+
+                <!--Timer do pomodoro-->
                 <aside class="meu-timer">
                     <div class="temporizador">
                         <h3>Meu timer</h3>
@@ -56,6 +61,7 @@
                     </div>
                 </aside>
                 <aside>
+                    <!--Ciclo de maçãs a cada finalização do foco-->
                     <div class="ciclo">
                         <div class="primeiroParPomo">
                             <img id="pomo0" src="assets/maca.png" class="pomo">
@@ -68,9 +74,10 @@
                     </div>
                 </aside>
             </div>
-            <!--Parte do cronômetro-->
         </section>
         <section>
+
+            <!--Parte do cronômetro-->
             <div class="conteudo-cronometro">
                 <div class="meu-cronometro">
                     <div class="cronometro">
@@ -98,6 +105,7 @@
             </div>
         </section>
         <section>
+            <!--Video de lo-fi-->>
             <div id="lo-fi">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/jfKfPfyJRdk"
                     title="YouTube video player" frameborder="0"
@@ -106,9 +114,10 @@
             </div>
         </section>
 
-        <!-- Parte da lista de tarefas -->
-
+        <!-- Estrutura da lista de tarefas -->
         <section class="container">
+
+            <!--Lista inserida-->
             <aside>
                 <h1>Lista de tarefas</h1>
                 <p>
@@ -118,6 +127,8 @@
 
                 <ul class="tarefas"></ul>
             </aside>
+
+            <!--Lista concluída-->
             <aside class="sessao-concluido">
                 <div>
                     <h1 style="text-align: center;">Concluido</h1>
@@ -131,6 +142,7 @@
         </section>
     </div>
     </main>
+    <script src="listaDeTarefas.js"></script>
     <script src="cronometro.js"></script>
     <script src="pomodoro.js"></script>
 </body>

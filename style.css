@@ -6,12 +6,9 @@
 }
 
 * {
-    /* O código em asterisco chama-se seletor universal, pois todos os atributos contidos nele impactará nas chamadas subsequentes.*/
     margin: 0 auto;
     padding: 0;
-    /*A propriedade padding define uma a distância entre o conteúdo de um elemento e suas bordas. É um atalho que evita definir uma distância para cada lado separadamente ( padding-top , padding-right , padding-bottom , padding-left )*/
     box-sizing: border-box;
-    /*O box-sizing com o valor border-box faz com que o navegador não calcule a dimensão de um elemento somando bordas e margens com altura e largura*/
     outline: 0;
 }
 
@@ -33,7 +30,6 @@ body {
 }
 
 /*////////// Temporizador //////////*/
-
 /* Retira os detalhes das setas que aparecem no input*/
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
@@ -46,7 +42,6 @@ input[type=number] {
     appearance: textfield; /* padrão */
     text-align: center;
 }
-/*///////////////////////////////////////////////////*/
 
 img {
     -webkit-user-select: none;
@@ -56,6 +51,7 @@ img {
     pointer-events: none;
   }
 
+/*%%%%%%%%%%%%%% Estiliza o temporizador %%%%%%%%%%%%%%*/
 .container-temporizador aside{
     width: 70%;
     float: left;
@@ -151,9 +147,9 @@ img {
 .conteudo-pomodoro{
     display: flex;
 }
-/*//////////////////////////////////////////////////////*/
 
-/*///////////////Cronômetro///////////////*/
+
+/*%%%%%%%%%%%%%%% Cronômetro %%%%%%%%%%%%%%%%%*/
 
 .meu-cronometro {
     text-align: center;
@@ -236,15 +232,14 @@ img {
     color: white;
 }
 
-/*///////////////////////////////////////*/
 
-/*Video lo-fi*/
+/*%%%%%% Video lo-fi %%%%%%%%*/
 #lo-fi{
     text-align: center;
 }
-/*//////////////////*/
 
-/*/////////////    Lista de tarefas   ///////////////*/
+
+/*%%%%%%%%%%%%%% Lista de tarefas %%%%%%%%%%%%%%%*/
 .container {
     max-width: 900px;
     margin: 50px auto;
@@ -297,7 +292,7 @@ img {
     white-space: pre-wrap;
 }
 
-/*Aqui está a hora e a data atual*/
+/*Aqui está a hora e a data atual da lista inserida*/
 h6 { 
     text-align: center;
 }
