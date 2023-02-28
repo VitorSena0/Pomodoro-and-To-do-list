@@ -39,7 +39,7 @@ function listaDeTarefas() {
     }
 
     // Adiciona o tempo de quando a tarefa foi criada
-    const criaHoraTarefa = (lista) => {
+    const criaHoraTarefa = (lista, DataSalva = undefined) => {
         const data = new Date();
         const dataLocal = data.toLocaleDateString()
         const horaLocal = data.toLocaleTimeString('pt-br',{hour: 'numeric', minute: 'numeric'})// Deixa o horário sem os segundos
@@ -57,8 +57,9 @@ function listaDeTarefas() {
 
     // Cria Dimamicante um botão 'apagar' para cada nova tarefa criada
     const CriaBotaoApagar = function (lista) {
-        const botaoApagar = document.createElement('button');
-        botaoApagar.innerText = 'Apagar';
+        const botaoApagar = document.createElement('div');
+        const botaoApagarGif = document.createElement('img');
+        botaoApagar.appendChild(botaoApagarGif)
         botaoApagar.setAttribute('class', 'apagar');
         botaoApagar.setAttribute('title', 'Apagar Tarefa');
         lista.appendChild(botaoApagar)
@@ -66,8 +67,7 @@ function listaDeTarefas() {
     
     // Cria Dimamicante um botão 'concluir' para cada nova tarefa criada
     const CriaBotaoConcluir = function (lista) {
-        const botaoConcluir = document.createElement('button');
-        botaoConcluir.innerText = 'Concluir';
+        const botaoConcluir = document.createElement('div');
         botaoConcluir.setAttribute('class', 'concluir');
         botaoConcluir.setAttribute('title', 'Concluir Tarefa');
         lista.appendChild(botaoConcluir);

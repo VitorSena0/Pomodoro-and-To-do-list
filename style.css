@@ -268,22 +268,98 @@ img {
     padding-top: 0px;
 }
 
+.input-tarefa {
+    border-radius: 5px;
+    width: 240px;
+    height: 24px;
+    margin-bottom: 5px;
+}
+
+.input-tarefa:focus{
+    border: solid 3px rgb(0, 119, 255);
+    box-shadow: rgba(0, 119, 255, 0.468) 2px 3px;
+}
+
 .apagar{
+    width: 25px;
+    height: 25px;
     float: right;
     margin-top: 6px;
     margin-left: 14px;
+    background-size: contain;
+    animation-play-state: paused;
 } 
 
-.concluir {
+.apagar img{
+    background-size: contain;
+    width: 28px;
+    height: 28px;
+    background-image: url(assets/excluir.png);
+}
+
+.apagar:hover img{
+    background-image: url(assets/excluir.gif);
+}
+
+.concluir{
     float: right;
     margin-top: 6px;
+    width: 27px;
+    height: 27px;
+    background-image: url("assets/caixa-de-seleção-desmarcada (2).png");
+    background-size: contain;
 }
+
+.concluir:hover {
+    width: 29px;
+    height: 29px;
+    background-image: url("assets/caixa-de-seleção-marcada.png");
+    opacity: 0.5;
+    
+}
+
+.remove-all{
+    background-color: rgba(242, 80, 80, 0.724);
+    width: 90px;
+    height: 24px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+.remove-all:hover {
+    background-color: #da1c0ac0;
+    border: solid 1px;
+    width: 95px;
+    height: 28px;
+    box-shadow: rgb(74, 70, 70) 2px 2px;
+}
+
+.add-tarefa {
+    background-color: rgba(18, 157, 57, 0.587);
+    border-radius: 6px;
+    height: 20px;
+    width: 160px;
+    margin-left: 20px; 
+    margin-top: 7px; 
+    border: none;
+}
+
+.add-tarefa:hover {
+    height: 22px;
+    width: 164px;
+    background-color: rgba(18, 157, 57, 0.84);
+    border: solid 1px;
+    box-shadow: rgb(74, 70, 70) 2px 2px;
+}
+
 .tarefas{
     width: 450px;
     word-wrap: break-word;
     list-style: inside;
     list-style-type: decimal-leading-zero;
     padding-right: 10px;
+    margin-top: 25px;
     
 }
 
