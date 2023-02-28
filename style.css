@@ -247,6 +247,8 @@ img {
     padding: 20px;
     border-radius: 10px;
     display: flex;
+    border: 5px solid rgba(122, 110, 110, 0.963);
+    box-shadow: rgba(0, 0, 0, 0.466) 22px 22px;
   }
 
 .sessao-concluido {
@@ -287,8 +289,12 @@ img {
     margin-top: 6px;
     margin-left: 14px;
     background-size: contain;
-    animation-play-state: paused;
+    margin-right: 12px;
 } 
+
+.apagar{
+    cursor: pointer;
+}
 
 .apagar img{
     background-size: contain;
@@ -325,6 +331,7 @@ img {
     font-size: 15px;
     border-radius: 10px;
     border: none;
+    margin-right: 15px;
 }
 
 .remove-all:hover {
@@ -332,7 +339,7 @@ img {
     border: solid 1px;
     width: 95px;
     height: 28px;
-    box-shadow: rgb(74, 70, 70) 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.639) 2px 2px;
 }
 
 .add-tarefa {
